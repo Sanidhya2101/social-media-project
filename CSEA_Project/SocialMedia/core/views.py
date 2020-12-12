@@ -4,5 +4,3 @@ from django.shortcuts import render
 def home(request):
     return render(request,'home.html')
 
-def sample(request):
-    return render(request,'sample.html')
