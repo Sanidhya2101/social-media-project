@@ -4,21 +4,21 @@ from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def home(request):
-	count = User.objects.count()
+    count = User.objects.count()
     return render(request,'home.html', {
-    	'count': count
-    	})
+        'count': count
+        })
 
 
 
 def signup(request):
-	if request.method == 'POST':
-	    form = UserCreationForm(request.POST)
-	    if form.is_valid():
-	        form.save()
-	    	return redirect('home')
-	else:
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
          form = UserCreationForm()
-	return render(request, 'registration/signup.html', {
-		'form': form
-		})
+    return render(request, 'registration/signup.html', {
+        'form': form
+        })
